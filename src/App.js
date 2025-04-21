@@ -6,19 +6,19 @@ import { EraProvider } from './contexts/EraContext';
 import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
-return (
-<ErrorBoundary>
-<EraProvider>
-<Router>
-  <div className="app-container">
-    <Navbar />
-    <MainContent />
-    <Footer />
-  </div>
-</Router>
-</EraProvider>
-</ErrorBoundary>
-);
+  return (
+    <ErrorBoundary>
+      <EraProvider>
+        <Router>
+          <div className="app-container">
+            <Navbar />
+            <MainContent />
+            <Footer />
+          </div>
+        </Router>
+      </EraProvider>
+    </ErrorBoundary>
+  );
 }
 
 export default App;

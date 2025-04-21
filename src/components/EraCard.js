@@ -6,7 +6,7 @@ function EraCard({ era }) {
   }
   return (
     <div className="era-card">
-      <div className="era-card-image" style={{ backgroundImage: `url(${era.image})` }}></div>
+      <div className="era-card-image" style={{ backgroundImage: `url(${era.image})` }} />
       <div className="era-card-content">
         <h3>{era.title}</h3>
         <p>{era.body}</p>

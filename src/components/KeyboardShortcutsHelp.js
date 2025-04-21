@@ -12,21 +12,21 @@ function KeyboardShortcutsHelp() {
   ];
 
   return (
-    <div className="keyboard-shortcuts">
+    <div className='keyboard-shortcuts'>
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="help-button"
-        aria-label="Keyboard shortcuts help"
+        className='help-button'
+        aria-label='Keyboard shortcuts help'
       >
         ⌨️
       </button>
       {isOpen && (
-        <div className="shortcuts-modal" role="dialog" aria-label="Keyboard shortcuts">
+        <div className='shortcuts-modal' role='dialog' aria-label='Keyboard shortcuts'>
           <h3>Keyboard Shortcuts</h3>
           <ul>
             {shortcuts.map(({ key, description }) => (
               <li key={key}>
-                <kbd>{key}</kbd> - {description}
+                <kbd>{key}</kbd>-{description}
               </li>
             ))}
           </ul>
