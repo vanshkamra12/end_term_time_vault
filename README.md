@@ -40,6 +40,22 @@ REACT_APP_HISTORY_API_KEY=your_api_key_here
 REACT_APP_HISTORY_API_URL=your_api_url_here
 ```
 
+3. Then follow these steps for Netlify deployment:
+
+- Go to [Netlify](https://www.netlify.com/) and sign in/sign up
+- Click "New site from Git"
+- Connect to your GitHub repository
+- Configure build settings:
+  - Build command: `npm run build`
+  - Publish directory: `build`
+- Add environment variables in Netlify settings:
+  ```
+  REACT_APP_WIKI_API_URL=https://en.wikipedia.org/api/rest_v1/page
+  REACT_APP_HISTORY_API_KEY=M1RKxAkXWCS/zGur1y+4Rw==i7rIq8ojgxDVXQCs
+  REACT_APP_HISTORY_API_URL=https://api.api-ninjas.com/v1/historicalevents
+  ```
+- Deploy!
+
 4. Start development server:
 ```bash
 npm start
@@ -109,4 +125,4 @@ User-friendly form for adding new historical entries with validation and period 
 Interactive timeline interface showing different historical periods and their connections.
 
 ## Live Demo
-[View Live Demo](https://vanshkamra12.github.io/end_term_time_vault/)
+[View Live Demo](https://your-netlify-url.netlify.app)

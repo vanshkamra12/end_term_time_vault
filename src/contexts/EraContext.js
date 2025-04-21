@@ -2,12 +2,6 @@ import { createContext, useState, useContext } from 'react';
 
 const EraContext = createContext();
 
-function extractYear(text) {
-  // Match years like 2040, -3000, or ranges like 2070-2170
-  const yearMatch = text.match(/(-?\d{1,4})(?:\s*-\s*\d{1,4})?(?=\s*(BCE|CE|AD)?)/);
-  return yearMatch ? parseInt(yearMatch[1]) : null;
-}
-
 export function EraProvider({ children }) {
   const [filter, setFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');

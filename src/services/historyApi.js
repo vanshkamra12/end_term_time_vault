@@ -1,43 +1,6 @@
 import axios from 'axios';
-import { API_CONFIG } from '../config/apiConfig';
-
-const wikiApi = axios.create({
-  baseURL: process.env.REACT_APP_WIKI_API_URL
-});
-
-const requestQueue = [];
-const REQUEST_LIMIT = 10;
-const TIME_WINDOW = 1000;
-let requestsMade = 0;
-let windowStart = Date.now();
-
-const rateLimiter = async (request) => {
-  const now = Date.now();
-  if (now - windowStart >= TIME_WINDOW) {
-    requestsMade = 0;
-    windowStart = now;
-  }
-
-  if (requestsMade < REQUEST_LIMIT) {
-    requestsMade++;
-    return request();
-  }
-
-  return new Promise((resolve) => {
-    requestQueue.push(() => {
-      resolve(request());
-    });
-    
-    setTimeout(() => {
-      if (requestQueue.length > 0) {
-        const nextRequest = requestQueue.shift();
-        requestsMade = 1;
-        windowStart = Date.now();
-        nextRequest();
-      }
-    }, TIME_WINDOW);
-  });
-};
+// Remove unused API_CONFIG import
+// const wikiApi and rateLimiter are removed since they're not used
 
 const cache = new Map();
 const CACHE_DURATION = 1000 * 60 * 60;
