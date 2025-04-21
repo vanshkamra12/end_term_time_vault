@@ -25,7 +25,7 @@ An interactive timeline exploration application that lets users discover histori
 
 1. Clone the repository:
 ```bash
-git clone <your-github-repo-url>
+git clone https://github.com/vanshkamra12/end_term_time_vault
 cd time-vault
 ```
 
@@ -91,7 +91,22 @@ src/
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Screenshots
-[Add screenshots of your application here]
+
+### Homepage & Search
+![Homepage](screenshots/homepage-search.png)
+The homepage features an elegant search interface with period filtering and advanced search options for exploring historical eras.
+
+### Era Details Page
+![Era Details](screenshots/era-details.png)
+Detailed view of each historical era with comprehensive information about events, figures, and artifacts.
+
+### Create Entry Form
+![Create Entry](screenshots/create-entry.png)
+User-friendly form for adding new historical entries with validation and period selection.
+
+### Timeline Navigation
+![Timeline](screenshots/timeline-view.png)
+Interactive timeline interface showing different historical periods and their connections.
 
 ## Live Demo
-[Add your Netlify deployment link here]
+[View Live Demo](https://vanshkamra12.github.io/end_term_time_vault/)
