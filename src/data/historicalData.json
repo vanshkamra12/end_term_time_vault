@@ -1,0 +1,103 @@
+{
+  "eras": {
+    "ancient": {
+      "events": [
+        {
+          "title": "Construction of Great Pyramid",
+          "date": "2560 BCE",
+          "description": "Construction of the Great Pyramid of Giza under Pharaoh Khufu"
+        }
+      ],
+      "figures": [
+        {
+          "name": "Pharaoh Khufu",
+          "period": "2589-2566 BCE",
+          "role": "Fourth Dynasty Egyptian pharaoh"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "Rosetta Stone",
+          "date": "196 BCE",
+          "type": "Ancient Egyptian decree"
+        }
+      ]
+    },
+    "medieval": {
+      "events": [
+        {
+          "title": "Battle of Hastings",
+          "date": "1066 CE",
+          "description": "Norman Conquest of England"
+        },
+        {
+          "title": "First Crusade",
+          "date": "1095-1099 CE",
+          "description": "First of the religious wars"
+        }
+      ],
+      "figures": [
+        {
+          "name": "Charlemagne",
+          "period": "742-814 CE",
+          "role": "King of the Franks"
+        },
+        {
+          "name": "Joan of Arc",
+          "period": "1412-1431 CE",
+          "role": "French military leader"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "Bayeux Tapestry",
+          "date": "1070s CE",
+          "type": "Embroidered historical record"
+        },
+        {
+          "name": "Book of Kells",
+          "date": "800 CE",
+          "type": "Illuminated manuscript"
+        }
+      ]
+    },
+    "future": {
+      "events": [
+        {
+          "title": "Mars Colony Establishment",
+          "date": "2050",
+          "description": "First permanent human settlement on Mars"
+        },
+        {
+          "title": "Quantum Internet Launch",
+          "date": "2040",
+          "description": "Global quantum communication network"
+        }
+      ],
+      "figures": [
+        {
+          "name": "AI Systems",
+          "period": "2030-Present",
+          "role": "Autonomous decision makers"
+        },
+        {
+          "name": "Space Pioneers",
+          "period": "2025-Present",
+          "role": "Mars colonization leaders"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "Quantum Computers",
+          "date": "2035",
+          "type": "Advanced computing systems"
+        },
+        {
+          "name": "Neural Interfaces",
+          "date": "2045",
+          "type": "Brain-computer connection devices"
+        }
+      ]
+    }
+  }
+}

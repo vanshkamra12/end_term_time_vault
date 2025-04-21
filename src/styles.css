@@ -1,0 +1,623 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', 'Times New Roman', serif;
+    line-height: 1.6;
+    background: #1a1a1a;
+    color: #d4b886;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://www.transparenttextures.com/patterns/scratched-metal.png'),
+        url('https://www.transparenttextures.com/patterns/concrete-wall-2.png');
+    opacity: 0.9;
+    z-index: -1;
+    animation: backgroundScroll 20s linear infinite;
+}
+
+@keyframes backgroundScroll {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(20,20,20,0.6) 100%),
+        url('https://www.transparenttextures.com/patterns/cracked-glass.png');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Navbar */
+.navbar {
+    background: #1a1a1a;
+    background-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.1)),
+        url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17L3 5h14l-7 12z' fill='%23463423' fill-opacity='0.05'/%3E%3C/svg%3E");
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #463423;
+    box-shadow: 
+        0 2px 15px rgba(0, 0, 0, 0.4),
+        inset 0 -1px 2px rgba(70,52,35,0.1);
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d4b886;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(212, 184, 134, 0.2);
+    font-family: 'Playfair Display', serif;
+    position: relative;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-links a {
+    color: #a89070;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding: 5px 0;
+    font-family: 'Crimson Text', serif;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4b886, transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #d4b886;
+}
+
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Footer */
+.footer {
+    background: #333333;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings with Word-by-Word Animation */
+.animated-heading {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3.5rem;
+    color: #d4b886;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+                 0 0 15px rgba(212, 184, 134, 0.3);
+    position: relative;
+}
+
+.animated-heading::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #463423, transparent);
+}
+
+.animated-heading span {
+    display: inline-block;
+    opacity: 0;
+    animation: tickIn 0.5s forwards;
+}
+
+.animated-heading span:nth-child(1) { animation-delay: 0.2s; }
+.animated-heading span:nth-child(2) { animation-delay: 0.4s; }
+.animated-heading span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes tickIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Filter */
+.filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter label {
+    margin-right: 10px;
+    color: #333333;
+}
+
+.filter select {
+    padding: 8px;
+    border: 1px solid #463423;
+    border-radius: 4px;
+    background: #1a1a1a;
+    color: #d4b886;
+    font-size: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Era Grid */
+.era-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 600px) {
+    .era-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .era-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Era Card */
+.era-card {
+    background: rgba(26, 26, 26, 0.95);
+    border: 1px solid #463423;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.era-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, rgba(70,52,35,0.1), rgba(212,184,134,0.05)),
+        url('https://www.transparenttextures.com/patterns/old-wall.png');
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.era-card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.era-card-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+}
+
+.era-card-content {
+    padding: 20px;
+}
+
+.era-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.era-card h3 {
+    font-size: 1.5rem;
+    color: #d4b886;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.era-card p {
+    color: #a89070;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.era-period {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.era-link {
+    display: inline-block;
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 2px solid #2c3e50;
+    border-radius: 25px;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.era-link:hover {
+    background: #2c3e50;
+    color: white;
+}
+
+/* Era Details, Create Entry, About */
+.era-details,
+.create-entry,
+.about {
+    background: rgba(26, 26, 26, 0.95);
+    border: 2px solid #463423;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.era-details::before,
+.create-entry::before,
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://www.transparenttextures.com/patterns/parchment.png');
+    opacity: 0.1;
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+.era-details h2,
+.create-entry h2 {
+    font-size: 1.8rem;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.era-details h3 {
+    font-size: 1.4rem;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.era-details ul {
+    list-style: disc;
+    padding-left: 20px;
+    color: #666666;
+}
+
+.era-details p,
+.about p {
+    color: #a89070;
+    margin-bottom: 15px;
+}
+
+/* Form */
+.create-entry form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 12px;
+    border: 1px solid #463423;
+    border-radius: 4px;
+    background: rgba(26, 26, 26, 0.95);
+    color: #d4b886;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.rating {
+    display: flex;
+    gap: 5px;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: #ccc;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.star.active {
+    color: #d4b886;
+}
+
+.error {
+    color: #d32f2f;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.success {
+    color: #388e3c;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.submit-button {
+    background: linear-gradient(45deg, #2c1810, #463423);
+    color: #d4b886;
+    padding: 12px 30px;
+    border: 1px solid #463423;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.submit-button:hover {
+    background: linear-gradient(45deg, #463423, #2c1810);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(70, 52, 35, 0.3);
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #d4b886;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  background: rgba(26, 26, 26, 0.95);
+  border: 2px solid #463423;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.error {
+  text-align: center;
+  padding: 20px;
+  color: #ff6b6b;
+  background: rgba(26, 26, 26, 0.95);
+  border: 2px solid #463423;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(212, 184, 134, 0.3);
+  border-radius: 50%;
+  border-top-color: #d4b886;
+  animation: spin 1s ease-in-out infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-boundary {
+  text-align: center;
+  padding: 40px;
+  margin: 20px;
+  background: rgba(26, 26, 26, 0.95);
+  border: 2px solid #463423;
+  border-radius: 8px;
+  color: #d4b886;
+}
+
+.error-boundary button {
+  background: linear-gradient(45deg, #2c1810, #463423);
+  color: #d4b886;
+  padding: 10px 20px;
+  border: 1px solid #463423;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.error-boundary button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(70, 52, 35, 0.3);
+}
+
+/* Search Bar Styles */
+.search-bar {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #463423;
+  border-radius: 25px;
+  background: rgba(26, 26, 26, 0.95);
+  color: #d4b886;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #d4b886;
+  box-shadow: 0 0 10px rgba(212, 184, 134, 0.2);
+}
+
+.advanced-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.advanced-filters select,
+.advanced-filters input {
+  padding: 8px 12px;
+  border: 1px solid #463423;
+  border-radius: 4px;
+  background: rgba(26, 26, 26, 0.95);
+  color: #d4b886;
+  font-size: 1rem;
+}
+
+/* Keyboard Shortcuts */
+.keyboard-shortcuts {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.help-button {
+  background: rgba(26, 26, 26, 0.95);
+  border: 2px solid #463423;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.help-button:hover {
+  transform: scale(1.1);
+}
+
+.shortcuts-modal {
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  background: rgba(26, 26, 26, 0.98);
+  border: 2px solid #463423;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  color: #d4b886;
+}
+
+.shortcuts-modal h3 {
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+}
+
+.shortcuts-modal ul {
+  list-style: none;
+}
+
+.shortcuts-modal li {
+  margin-bottom: 10px;
+}
+
+kbd {
+  background: #463423;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-family: monospace;
+}
