@@ -36,25 +36,10 @@ npm install
 
 3. Create a `.env` file in the root directory:
 ```env
-REACT_APP_HISTORY_API_KEY=your_api_key_here
-REACT_APP_HISTORY_API_URL=your_api_url_here
+REACT_APP_WIKI_API_URL=https://en.wikipedia.org/api/rest_v1/page
+REACT_APP_HISTORY_API_KEY=M1RKxAkXWCS/zGur1y+4Rw==i7rIq8ojgxDVXQCs
+REACT_APP_HISTORY_API_URL=https://api.api-ninjas.com/v1/historicalevents
 ```
-
-3. Then follow these steps for Netlify deployment:
-
-- Go to [Netlify](https://www.netlify.com/) and sign in/sign up
-- Click "New site from Git"
-- Connect to your GitHub repository
-- Configure build settings:
-  - Build command: `npm run build`
-  - Publish directory: `build`
-- Add environment variables in Netlify settings:
-  ```
-  REACT_APP_WIKI_API_URL=https://en.wikipedia.org/api/rest_v1/page
-  REACT_APP_HISTORY_API_KEY=M1RKxAkXWCS/zGur1y+4Rw==i7rIq8ojgxDVXQCs
-  REACT_APP_HISTORY_API_URL=https://api.api-ninjas.com/v1/historicalevents
-  ```
-- Deploy!
 
 4. Start development server:
 ```bash
